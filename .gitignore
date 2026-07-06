@@ -1,0 +1,15 @@
+.env
+
+.venv/
+venv/
+
+__pycache__/
+.pytest_cache/
+node_modules/
+aws/
+.aws/
+draft/
+
+*.ini
+*.db
+*.log
