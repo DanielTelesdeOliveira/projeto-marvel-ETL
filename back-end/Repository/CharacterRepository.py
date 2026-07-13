@@ -1,4 +1,3 @@
-from fastapi import HTTPException
 from Model import Character
 
 class CharacterRepository:
