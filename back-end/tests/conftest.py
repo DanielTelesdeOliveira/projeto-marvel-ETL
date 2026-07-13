@@ -27,8 +27,8 @@ def session_fixture():
         character_2 = Model.CharacterModel.Character(id=2, name="Peter Parker", description="Peter Parker was bitten by a radioactive spider as a teenager, granting him spider-like powers.")
         person_1 = Model.PersonModel.Person(id=1, name="Stan Lee")
         person_2 = Model.PersonModel.Person(id=2, name="Jack Kirby")
-        char_person_1 = Model.Character_Person(id=1,character_id=1, person_id=1)
-        char_person_2 = Model.Character_Person(id=2,character_id=2, person_id=2)
+        char_person_1 = Model.CharacterCreatorModel.Character_Creator(id=1,character_id=1, creator_id=1)
+        char_person_2 = Model.CharacterCreatorModel.Character_Creator(id=2,character_id=2, creator_id=2)
         db.add_all([character_1, character_2, person_1, person_2, char_person_1, char_person_2])
         db.commit()
         yield db
