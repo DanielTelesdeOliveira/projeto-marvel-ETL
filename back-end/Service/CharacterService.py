@@ -1,4 +1,4 @@
-from Repository import CharacterRepository
+from Repository.CharacterRepository import CharacterRepository
 from fastapi import HTTPException
 
 class CharacterService:
