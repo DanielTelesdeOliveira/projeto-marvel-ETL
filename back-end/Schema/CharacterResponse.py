@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class CharacterResponse(BaseModel):
     id: int
@@ -6,12 +6,10 @@ class CharacterResponse(BaseModel):
     description: str
 
     #Permite que o Pydanyic leia objetos Python
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_atrributes=True)
 
 class CharacterListResponse(BaseModel):
     id: int
     name: str
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_atrributes=True)

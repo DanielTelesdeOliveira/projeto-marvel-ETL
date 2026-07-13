@@ -1,4 +1,4 @@
-from Service import CharacterService
+from Service.CharacterService import CharacterService
 from Schema.CharacterResponse import CharacterResponse, CharacterListResponse
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
@@ -20,5 +20,5 @@ def list_characters(db: Session = Depends(get_db)):
     return service.get_all(db)
 
 @router.get("/show/{character_id}", response_model=CharacterResponse)
-def get_character(character_id: int, db: Session = Depends(get_db)):
-    return service.get_by_id(db, character_id)
+def get_character_by_id(character_id: int, db: Session = Depends(get_db)):
+    return service.get_by_id(character_id, db)
