@@ -1,5 +1,5 @@
 from Service.CharacterService import CharacterService
-from Schema.CharacterResponse import CharacterResponse, CharacterListResponse
+from Schema.CharacterSchema import CharacterResponse, CharacterListResponse
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from database import get_db
