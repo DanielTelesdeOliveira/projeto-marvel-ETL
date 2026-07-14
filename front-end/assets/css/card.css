@@ -1,0 +1,23 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: gainsboro;
+    text-decoration: none;
+    color: inherit;
+    transition: .2s;
+}
+
+.card:hover{
+    border-color: black;
+    transform: translateY(-3px);
+}
