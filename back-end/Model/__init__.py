@@ -5,3 +5,5 @@ from .VolumeModel import Volume
 from .CharacterCreatorModel import Character_Creator
 from .CharacterIssueModel import Character_Issue
 from .IssueCreditModel import Issue_Credit
+from .PowerModel import Power
+from .CharacterPowerModel import Character_Power
