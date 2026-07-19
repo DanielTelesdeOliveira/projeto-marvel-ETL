@@ -9,7 +9,7 @@ class CharacterService:
         character_list = self.repository.find_all(db)
         return character_list
 
-    def get_by_id(self, id, db):
+    def get_by_id(self, db, id):
         if id <= 0:
             raise HTTPException(status_code=400, detail="Invalid character id")
         
@@ -17,5 +17,5 @@ class CharacterService:
 
         if character is None:
             raise HTTPException(status_code=404, detail="Character not found")
-        
+
         return character

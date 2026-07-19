@@ -21,4 +21,4 @@ def list_characters(db: Session = Depends(get_db)):
 
 @router.get("/show/{character_id}", response_model=CharacterResponse)
 def get_character_by_id(character_id: int, db: Session = Depends(get_db)):
-    return service.get_by_id(character_id, db)
+    return service.get_by_id(db, character_id)
