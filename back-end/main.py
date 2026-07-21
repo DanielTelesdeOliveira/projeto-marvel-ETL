@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import database
 import Model
-from Controller import CharacterController, PersonController
+from Controller import CharacterController, PersonController, IssueController, VolumeController
 
 database.Base.metadata.create_all(bind=database.engine)
 app = FastAPI()
@@ -13,6 +13,8 @@ app.add_middleware(CORSMiddleware, allow_origins=["http://127.0.0.1:8000", "http
 
 app.include_router(CharacterController.router)
 app.include_router(PersonController.router)
+app.include_router(IssueController.router)
+app.include_router(VolumeController.router)
 
 @app.get("/")
 async def root():
