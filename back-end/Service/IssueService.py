@@ -6,7 +6,7 @@ class IssueService:
         self.repository = IssueRepository()
 
     def get_all(self, db):
-        issue_list = self.repository.find_all()
+        issue_list = self.repository.find_all(db)
         return issue_list
 
     def get_by_id(self, db, id):
