@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 from database import Base
 
 class Issue_Credit(Base):
@@ -7,4 +8,7 @@ class Issue_Credit(Base):
     issue_id = Column(Integer, ForeignKey("Issue.id", ondelete="CASCADE"))
     person_id = Column(Integer, ForeignKey("person.id", ondelete="CASCADE"))
     person_role = Column(String)
+
+    issue = relationship("Issue", back_populates="credits")
+    person = relationship("Person", back_populates="credits")
     

@@ -8,3 +8,4 @@ class Person(Base):
     name = Column(String)
 
     characters = relationship("Character", secondary="character_creator", back_populates="creators")
+    credits = relationship("Issue_Credit", back_populates="person")
