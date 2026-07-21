@@ -1,9 +1,12 @@
 from pydantic import BaseModel, ConfigDict
+from .IssueSchema import IssueVolumeResponse
 
 class VolumeResponse(BaseModel):
     id: int
     name: str
-    issue_quantity: int
+    issues_quantity: int
+    
+    issues: list[IssueVolumeResponse]
 
     model_config = ConfigDict(from_attributes=True)
 

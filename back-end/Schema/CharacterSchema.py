@@ -1,6 +1,5 @@
 from pydantic import BaseModel, ConfigDict
-from .IssueSchema import IssueListResponse
-from .PersonSchema import PersonListResponse
+from .ReferenceSchema import PersonReferenceResponse, IssueReferenceResponse
 from .PowerSchema import PowerListResponse
 
 class CharacterResponse(BaseModel):
@@ -8,8 +7,8 @@ class CharacterResponse(BaseModel):
     name: str
     description: str
     
-    issues: list[IssueListResponse]
-    creators: list[PersonListResponse]
+    issues: list[IssueReferenceResponse]
+    creators: list[PersonReferenceResponse]
     powers: list[PowerListResponse]
 
     #Permite que o Pydanyic leia objetos Python
