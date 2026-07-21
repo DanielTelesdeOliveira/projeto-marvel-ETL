@@ -1,5 +1,6 @@
 from Service.CharacterService import CharacterService
-from Schema.CharacterSchema import CharacterResponse, CharacterListResponse
+from Schema.CharacterSchema import CharacterResponse
+from Schema.ReferenceSchema import CharacterReferenceResponse
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from database import get_db
@@ -15,7 +16,7 @@ service = CharacterService()
 async def character_root():
     return {"message": "Hello World!! Characters Homepage!"}
 
-@router.get("/show", response_model=list[CharacterListResponse])
+@router.get("/show", response_model=list[CharacterReferenceResponse])
 def list_characters(db: Session = Depends(get_db)):
     return service.get_all(db)
 

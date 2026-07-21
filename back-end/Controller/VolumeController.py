@@ -1,5 +1,6 @@
 from Service.VolumeService import VolumeService
-from Schema.VolumeSchema import VolumeResponse, VolumeListResponse
+from Schema.VolumeSchema import VolumeResponse
+from Schema.ReferenceSchema import VolumeReferenceResponse
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends
 from database import get_db
@@ -15,7 +16,7 @@ service = VolumeService()
 async def volume_root():
     return {"message": "Volume homepage!!"}
 
-@router.get("/show", response_model=list[VolumeListResponse])
+@router.get("/show", response_model=list[VolumeReferenceResponse])
 async def list_volumes(db: Session = Depends(get_db)):
     return service.get_all(db)
 

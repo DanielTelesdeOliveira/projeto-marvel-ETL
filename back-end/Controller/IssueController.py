@@ -1,5 +1,6 @@
 from Service.IssueService import IssueService
-from Schema.IssueSchema import IssueResponse, IssueListResponse
+from Schema.IssueSchema import IssueResponse
+from Schema.ReferenceSchema import IssueReferenceResponse
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from database import get_db
@@ -15,7 +16,7 @@ service = IssueService()
 async def issue_root():
     return {"message": "Issue homepage!!"}
 
-@router.get("/show", response_model=list[IssueListResponse])
+@router.get("/show", response_model=list[IssueReferenceResponse])
 async def list_issues(db: Session = Depends(get_db)):
     return service.get_all(db)
 

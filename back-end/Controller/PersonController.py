@@ -1,5 +1,6 @@
 from Service.PersonService import PersonService
-from Schema.PersonSchema import PersonResponse, PersonListResponse
+from Schema.PersonSchema import PersonResponse
+from Schema.ReferenceSchema import PersonReferenceResponse
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from database import get_db
@@ -15,7 +16,7 @@ service = PersonService()
 async def person_root():
     return {"message": "Hello World!! Person Homepage!"}
 
-@router.get("/show", response_model=list[PersonListResponse])
+@router.get("/show", response_model=list[PersonReferenceResponse])
 def list_people(db: Session = Depends(get_db)):
     return service.get_all(db)
 
