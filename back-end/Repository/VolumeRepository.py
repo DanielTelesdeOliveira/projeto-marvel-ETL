@@ -1,4 +1,5 @@
-from Model.VolumeModel import Volume
+from Model import Volume, Issue
+from sqlalchemy.orm import selectinload
 
 class VolumeRepository:
     def find_all(self, db):
@@ -6,5 +7,8 @@ class VolumeRepository:
         return volumes_list
     
     def find_by_id(self, db, id):
-        volume = db.query(Volume).filter(Volume.id == id).first()
+        volume = (db.query(Volume)
+                  .options(selectinload(Volume.issues).selectinload(Issue.characters),
+                           selectinload(Volume.issues).selectinload(Issue.credits))
+                  .filter(Volume.id == id).first())
         return volume
