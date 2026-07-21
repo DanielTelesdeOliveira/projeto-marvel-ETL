@@ -8,7 +8,7 @@ async function getCharactersInfo(){
     console.log(id);
     const response = await fetch(`http://127.0.0.1:8000/characters/show/${id}`);
     
-    if(!response){
+    if(!response.ok){
         throw new Error("Error while fetching the character");
     }
 
@@ -22,7 +22,10 @@ async function getCharactersInfo(){
 
     data.creators.forEach(creator => {
          const li = document.createElement("li");
-         li.textContent = creator.name;
+         const a = document.createElement("a");
+         a.textContent = creator.name;
+         a.href = `/front-end/pages/person/details.html?id=${creator.id}`
+         li.appendChild(a);
          creators_list.appendChild(li);       
     });
 
@@ -34,7 +37,10 @@ async function getCharactersInfo(){
 
     data.issues.forEach(issue => {
          const li = document.createElement("li");
-         li.textContent = issue.name;
+         const a = document.createElement("a");
+         a.textContent = issue.name;
+         a.href = `/front-end/pages/issues/details.html?id=${issue.id}`
+         li.appendChild(a);
          issues_list.appendChild(li);       
     });
 
